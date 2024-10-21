@@ -6,7 +6,7 @@ const product=products[0];
 type Product={
     id:number,
     name:string,
-    price:number,
+    category:string,
     image:string,
     
   }
@@ -16,13 +16,22 @@ type ProductComponentProps={
 
 
 const Myproductcomponent=({product}:ProductComponentProps)=>{
+  const randomNumber = Math.floor(Math.random() * 80) + 1;
   return(
 <Link href={"/1"} asChild>
-  <Pressable style={styles.Container}>
+  <Pressable style={{backgroundColor:'#ffffff',
+    padding:10,
+    borderRadius:20,
+    width:"50%",
+    height: Math.random() < 0.5 ? 300 : 400,
+    justifyContent:'space-between',
+
+  }
+    }>
      
-     <Image source={{uri:product.image}} style={styles.productImg}  resizeMode='contain'/>
+     <Image source={{uri: `https://foodish-api.com/images/burger/burger${randomNumber}.jpg`}} style={styles.productImg}  resizeMode='contain'/>
      <Text style={styles.title} >{product.name}</Text>
-     <Text style={styles.price} >{product.price}</Text>
+     <Text style={styles.price} >{product.category}</Text>
      
 
     </Pressable>
@@ -37,7 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor:'#ffffff',
     padding:10,
     borderRadius:20,
-    flex:1
+    width:"50%",
+    height: Math.floor(Math.random() * 100) + 300
 
   },
   productImg:{
