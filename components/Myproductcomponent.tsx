@@ -1,8 +1,7 @@
 import { Image, StyleSheet, View,Text, Pressable } from 'react-native';
-import products from '../assets/data/products'
+
 import { Link } from 'expo-router';
 
-const product=products[0];
 type Product={
     id:number,
     name:string,
